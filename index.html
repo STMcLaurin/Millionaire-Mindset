@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Millionaire Mindset • Affirmations</title>
+   <link rel="stylesheet" href="styles.css">
+   <script src="script.js" defer></script>
+</head>
+<body>
+
+   <!-- ============== SPLASH SCREEN ============== -->
+   <div class="splash-overlay" id="splashScreen">
+       <span class="splash-diamond">💎</span>
+       <h1 class="splash-title">Millionaire<br>Mindset</h1>
+       <p class="splash-sub">Daily Affirmations</p>
+       <div class="splash-card-preview">
+           <p style="color:#c0ad82;">“Money flows to me easily and abundantly.”</p>
+       </div>
+       <p class="splash-tap">✨ Tap anywhere to begin ✨</p>
+   </div>
+
+
+   <!-- ============== MAIN APP ============== -->
+   <div class="app-container" id="appContainer">
+       <header class="app-header">
+           <span class="app-icon" aria-hidden="true">💎</span>
+           <h1 class="app-title">Millionaire Mindset</h1>
+           <p class="app-subtitle">Daily Affirmations</p>
+       </header>
+
+
+       <div class="card-wrapper" id="cardWrapper">
+           <div class="card" id="affirmationCard">
+               <span class="card-quote-mark">"</span>
+               <span class="card-number" id="cardNumber">AFFIRMATION 1 OF 20</span>
+               <p class="card-text" id="cardText">I am open to receiving abundance in all areas of my life.</p>
+               <button class="card-favorite-btn" id="favoriteBtn" title="Save to favorites" aria-label="Toggle favorite">☆</button>
+           </div>
+       </div>
+
+
+       <div class="progress-container">
+           <div class="progress-dots" id="progressDots"></div>
+           <span class="progress-label" id="progressLabel">1 / 20</span>
+       </div>
+
+
+       <div class="auto-rotate-indicator" id="autoRotateIndicator" style="display: none;">
+           <span class="dot-pulse"></span> Auto-Playing
+       </div>
+
+
+       <div class="controls">
+           <button class="btn btn-icon" id="btnPrev" title="Previous">◀</button>
+           <button class="btn btn-primary" id="btnRandom" title="Random affirmation">✨ Shuffle</button>
+           <button class="btn btn-icon" id="btnNext" title="Next">▶</button>
+       </div>
+
+
+       <div class="controls" style="gap: 8px;">
+           <button class="btn btn-sm" id="btnAutoPlay">▶ Auto-Play</button>
+           <button class="btn btn-sm" id="btnSpeak" title="Read aloud">🔊 Read</button>
+           <button class="btn btn-sm" id="btnFavoritesToggle">⭐ Favorites <span id="favCount">0</span></button>
+       </div>
+
+
+       <!-- Add custom affirmation -->
+       <div class="add-affirmation-area">
+           <input type="text" id="customAffirmationInput" placeholder="✍️ Write your own affirmation...">
+           <button class="btn btn-sm" id="btnAddCustom" style="padding:12px 16px;">+ Add</button>
+       </div>
+
+
+       <div class="favorites-panel" id="favoritesPanel">
+           <h4>⭐ Your Favorite Affirmations</h4>
+           <div id="favoritesList"></div>
+       </div>
+   </div>
+
+
+   <div class="toast" id="toast"></div>
+
+
+   
+</body>
+</html>
