@@ -538,7 +538,7 @@
                    renderFavoritesPanel();
                    updateFavCount();
                } else {
-                   btnFavoritesToggle.textContent = '⭐ Favorites ' + favorites.size;
+                   updateFavCount();
                }
            }
 
