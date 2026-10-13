@@ -51,14 +51,14 @@ $('newRoutineForm').addEventListener('submit',e=>{e.preventDefault();const field
 $('finishOnboarding').addEventListener('click',()=>{state.focus=$('focus').value;state.onboarded=true;save();render()});
 $('editFocus').addEventListener('click',()=>{state.onboarded=false;$('focus').value=state.focus;render();$('onboarding').scrollIntoView({behavior:'smooth'})});
 $('exportData').addEventListener('click',()=>{
- const copy={...state,exportedAt:new Date().toISOString()};
+ const copy={...state,exportedAt:new Date().toISOString(),affirmationData:{favorites:localStorage.getItem('millionaireAffirmationFavorites'),custom:localStorage.getItem('millionaireAffirmationsCustom')}};
  const blob=new Blob([JSON.stringify(copy,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='millionaire-mindset-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('backupStatus').textContent='Backup prepared. Store the file somewhere private.';
 });
 $('importData').addEventListener('change',async e=>{
  const file=e.target.files[0];if(!file)return;
  try{if(file.size>1024*1024)throw Error('Backup exceeds 1MB');
  const data=JSON.parse(await file.text());if(data.version!==2||!Array.isArray(data.routines)||!data.history||typeof data.history!=='object')throw Error('Invalid Millionaire Mindset backup');
- if(confirm('Replace current dashboard data with this backup?')){state=validate(data);save();render();$('backupStatus').textContent='Dashboard backup restored.'}
+ if(confirm('Replace current dashboard data with this backup?')){state=validate(data);save();if(data.affirmationData&&typeof data.affirmationData==='object'){for(const [field,key] of [['favorites','millionaireAffirmationFavorites'],['custom','millionaireAffirmationsCustom']]){const value=data.affirmationData[field];if(typeof value==='string'&&value.length<1000000){const parsed=JSON.parse(value);if(Array.isArray(parsed))localStorage.setItem(key,value)}}}render();$('backupStatus').textContent='Dashboard backup restored. Reload the affirmation studio to see restored entries.'}
  }catch(err){$('backupStatus').textContent='Import failed: '+err.message}finally{e.target.value=''}
 });
 render();
