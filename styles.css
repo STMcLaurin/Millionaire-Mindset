@@ -678,3 +678,18 @@ button:focus-visible,input:focus-visible,.favorite-item:focus-visible {outline:3
 @media(prefers-reduced-motion:reduce) {
  *,*::before,*::after {animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* Phase 1 final mobile spacing refinement */
+@media (max-width: 480px) {
+  body {align-items:flex-start}
+  .app-container {gap:16px}
+  .app-header {gap:4px}
+  .app-icon {font-size:38px}
+  .app-title {font-size:1.45rem;letter-spacing:.5px;text-align:center}
+  .app-subtitle {font-size:.72rem;letter-spacing:2px}
+  .card {min-height:210px;padding:46px 18px 34px}
+  .card-text {font-size:1.08rem;line-height:1.55}
+  .controls {gap:8px}
+  .controls .btn-sm {padding:10px 12px}
+  .add-affirmation-area {margin-top:0}
+}
