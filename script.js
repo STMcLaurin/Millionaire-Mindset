@@ -237,7 +237,7 @@
            const btnAutoPlay = document.getElementById('btnAutoPlay');
            const btnSpeak = document.getElementById('btnSpeak');
            const btnFavoritesToggle = document.getElementById('btnFavoritesToggle');
-           const favCountEl = document.getElementById('favCount');
+           // The favorites button label is refreshed directly so it never becomes stale.
            const favoritesPanel = document.getElementById('favoritesPanel');
            const favoritesList = document.getElementById('favoritesList');
            const autoRotateIndicator = document.getElementById('autoRotateIndicator');
@@ -254,6 +254,7 @@
                    if (splashScreen.parentNode) splashScreen.parentNode.removeChild(splashScreen);
                }, 800);
            }
+           document.getElementById('btnBegin').addEventListener('click', hideSplash);
            splashScreen.addEventListener('click', hideSplash);
            // Also hide after 6 seconds if no interaction
            setTimeout(() => {
@@ -352,9 +353,11 @@
 
 
                if (favorites.has(currentIndex)) {
+                   favoriteBtn.setAttribute('aria-pressed', 'true');
                    favoriteBtn.textContent = '★';
                    favoriteBtn.classList.add('favorited');
                } else {
+                   favoriteBtn.setAttribute('aria-pressed', 'false');
                    favoriteBtn.textContent = '☆';
                    favoriteBtn.classList.remove('favorited');
                }
@@ -383,21 +386,26 @@
 
 
            function updateProgressDots() {
-               progressDots.innerHTML = '';
+               // Rendering hundreds of clickable dots overwhelms narrow screens.
+               progressDots.replaceChildren();
+               if (total > 30) return;
                for (let i = 0; i < total; i++) {
-                   const dot = document.createElement('span');
-                   dot.classList.add('progress-dot');
+                   const dot = document.createElement('button');
+                   dot.type = 'button';
+                   dot.className = 'progress-dot';
+                   dot.setAttribute('aria-label', 'Go to affirmation ' + (i + 1));
+                   dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
                    if (i === currentIndex) dot.classList.add('active');
                    if (favorites.has(i)) dot.classList.add('favorite-dot');
-                   dot.title = `Affirmation ${i + 1}`;
                    dot.addEventListener('click', () => goToIndex(i));
                    progressDots.appendChild(dot);
                }
            }
 
-
            function updateFavCount() {
-               favCountEl.textContent = favorites.size;
+               const isOpen = favoritesPanel.classList.contains('open');
+               btnFavoritesToggle.textContent = isOpen ? '✕ Close favorites' : '⭐ Favorites ' + favorites.size;
+               btnFavoritesToggle.setAttribute('aria-expanded', String(isOpen));
            }
 
 
@@ -515,7 +523,7 @@
                            if (!isNaN(idx)) {
                                goToIndex(idx, true, 'jump');
                                favoritesPanel.classList.remove('open');
-                               btnFavoritesToggle.textContent = '⭐ Favorites ' + favorites.size;
+                               updateFavCount();
                                showToast(`Went to affirmation #${idx + 1}`);
                            }
                        });
@@ -528,9 +536,9 @@
                const isOpen = favoritesPanel.classList.toggle('open');
                if (isOpen) {
                    renderFavoritesPanel();
-                   btnFavoritesToggle.textContent = '✕ Close';
+                   updateFavCount();
                } else {
-                   btnFavoritesToggle.textContent = '⭐ Favorites ' + favorites.size;
+                   updateFavCount();
                }
            }
 
@@ -664,6 +672,14 @@ function speakCurrentAffirmation() {
            // ---------- CUSTOM AFFIRMATION ----------
            function addCustomAffirmation() {
                const text = customInput.value.trim();
+               if (text.length > 300) {
+                   showToast('Keep affirmations under 300 characters');
+                   return;
+               }
+               if (affirmations.some(value => value.toLocaleLowerCase() === text.toLocaleLowerCase())) {
+                   showToast('This affirmation already exists');
+                   return;
+               }
                if (!text) {
                    showToast('✍️ Please enter an affirmation');
                    return;

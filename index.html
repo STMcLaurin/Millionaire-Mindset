@@ -3,6 +3,8 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="theme-color" content="#0a0a0a">
+   <meta name="description" content="Millionaire Mindset: free daily affirmations for confidence, discipline and financial growth.">
    <title>Millionaire Mindset • Affirmations</title>
    <link rel="stylesheet" href="styles.css">
    <script src="script.js" defer></script>
@@ -17,7 +19,7 @@
        <div class="splash-card-preview">
            <p style="color:#c0ad82;">“Money flows to me easily and abundantly.”</p>
        </div>
-       <p class="splash-tap">✨ Tap anywhere to begin ✨</p>
+       <button type="button" class="btn btn-primary" id="btnBegin">Start affirmations</button>
    </div>
 
 
@@ -33,7 +35,7 @@
        <div class="card-wrapper" id="cardWrapper">
            <div class="card" id="affirmationCard">
                <span class="card-quote-mark">"</span>
-               <span class="card-number" id="cardNumber">AFFIRMATION 1 OF 20</span>
+               <span class="card-number" id="cardNumber">AFFIRMATIONS</span>
                <p class="card-text" id="cardText">I am open to receiving abundance in all areas of my life.</p>
                <button class="card-favorite-btn" id="favoriteBtn" title="Save to favorites" aria-label="Toggle favorite">☆</button>
            </div>
@@ -41,7 +43,7 @@
 
 
        <div class="progress-container">
-           <div class="progress-dots" id="progressDots"></div>
+           <div class="progress-dots" id="progressDots" aria-label="Affirmation navigation"></div>
            <span class="progress-label" id="progressLabel">1 / 20</span>
        </div>
 
@@ -52,9 +54,9 @@
 
 
        <div class="controls">
-           <button class="btn btn-icon" id="btnPrev" title="Previous">◀</button>
+           <button class="btn btn-icon" id="btnPrev" title="Previous" aria-label="Previous affirmation">◀</button>
            <button class="btn btn-primary" id="btnRandom" title="Random affirmation">✨ Shuffle</button>
-           <button class="btn btn-icon" id="btnNext" title="Next">▶</button>
+           <button class="btn btn-icon" id="btnNext" title="Next" aria-label="Next affirmation">▶</button>
        </div>
 
 
@@ -67,7 +69,8 @@
 
        <!-- Add custom affirmation -->
        <div class="add-affirmation-area">
-           <input type="text" id="customAffirmationInput" placeholder="✍️ Write your own affirmation...">
+           <label class="visually-hidden" for="customAffirmationInput">Write your own affirmation</label>
+           <input type="text" id="customAffirmationInput" maxlength="300" placeholder="✍️ Write your own affirmation...">
            <button class="btn btn-sm" id="btnAddCustom" style="padding:12px 16px;">+ Add</button>
        </div>
 
@@ -79,7 +82,7 @@
    </div>
 
 
-   <div class="toast" id="toast"></div>
+   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 
    
