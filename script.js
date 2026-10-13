@@ -223,6 +223,42 @@
            let isSwiping = false;
 
 
+           // Category boundaries correspond to the immutable built-in affirmation library.
+           // Custom affirmations are appended after the 178 originals.
+           const baseCategories = [
+             ['Abundance & Wealth',20],['My Software Developer Journey',35],
+             ['AI Software Developer',25],['AI Receptionist Business',13],
+             ['Entrepreneur & Founder',17],['Customers & Sales',11],
+             ['Professional Growth',14],['Resilience',15],
+             ['Future Identity',12],['The Transformation',16]
+           ];
+           const categorySelect = document.getElementById('affirmationCategory');
+           const categorySummary = document.getElementById('categorySummary');
+           baseCategories.forEach(([name]) => categorySelect.add(new Option(name,name)));
+           categorySelect.add(new Option('My Custom Affirmations','custom'));
+           function categoryForIndex(index) {
+             let cursor = 0;
+             for (const [name,count] of baseCategories) {
+               if (index < cursor+count) return name;
+               cursor += count;
+             }
+             return 'custom';
+           }
+           function filteredIndices() {
+             const selected = categorySelect.value;
+             return affirmations.map((_,index)=>index).filter(index =>
+                selected === 'all' || categoryForIndex(index) === selected);
+           }
+           function refreshCategorySummary() {
+             const visible = filteredIndices();
+             categorySummary.textContent = visible.length + ' in category';
+           }
+           categorySelect.addEventListener('change',()=> {
+             const visible=filteredIndices();
+             refreshCategorySummary();
+             if(visible.length) goToIndex(visible[0]); else showToast('No affirmations in this category yet');
+           });
+
            // ---------- DOM ELEMENTS ----------
            const splashScreen = document.getElementById('splashScreen');
            const card = document.getElementById('affirmationCard');
@@ -431,26 +467,29 @@
 
 
            function nextAffirmation() {
-               const newIndex = (currentIndex + 1) % total;
+               const indices=filteredIndices();
+               if (!indices.length) return;
+               const pos=indices.indexOf(currentIndex);
+               const newIndex=indices[(pos+1)%indices.length];
                goToIndex(newIndex, true, 'next');
            }
 
 
            function prevAffirmation() {
-               const newIndex = (currentIndex - 1 + total) % total;
+               const indices=filteredIndices();
+               if (!indices.length) return;
+               const pos=indices.indexOf(currentIndex);
+               const newIndex=indices[(pos<0?0:pos-1+indices.length)%indices.length];
                goToIndex(newIndex, true, 'prev');
            }
 
 
            function randomAffirmation() {
-               let newIndex;
-               if (total <= 1) {
-                   newIndex = 0;
-               } else {
-                   do {
-                       newIndex = Math.floor(Math.random() * total);
-                   } while (newIndex === currentIndex);
-               }
+               const indices=filteredIndices();
+               if (!indices.length) return;
+               const options=indices.filter(i=>i!==currentIndex);
+               const pool=options.length?options:indices;
+               const newIndex=pool[Math.floor(Math.random()*pool.length)];
                goToIndex(newIndex, true, 'random');
                showToast('🔮 New affirmation!');
            }
@@ -690,6 +729,7 @@ function speakCurrentAffirmation() {
                // Navigate to the newly added one
                goToIndex(total - 1, true, 'next');
                updateProgressDots();
+               refreshCategorySummary();
                showToast('✨ Your affirmation added!');
                saveAffirmationsToLocal(); // optional persistence
            }
@@ -849,6 +889,7 @@ function speakCurrentAffirmation() {
            function init() {
                loadAffirmationsFromLocal(); // load custom list if exists
                loadFavorites();
+               refreshCategorySummary();
                currentIndex = 0;
                updateCard(false, 'none');
                updateFavCount();
