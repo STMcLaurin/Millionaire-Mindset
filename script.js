@@ -1,221 +1,16 @@
 
        (function() {
            // ---------- AFFIRMATIONS DATA ----------
-           let affirmations = [
-   // Abundance & Wealth
-   "I am open to receiving abundance in all areas of my life.",
-   "I attract wealth and prosperity effortlessly.",
-   "My mindset is that of a millionaire, and my actions align with my financial goals.",
-   "I am a magnet for financial opportunities, and I embrace them with confidence.",
-   "Every day, I am moving closer to my goal of becoming a millionaire.",
-   "I am worthy of financial success and all the benefits it brings.",
-   "Money flows to me easily and abundantly.",
-   "I am grateful for the abundance that is already present in my life.",
-   "I am a master of creating wealth, and I use my skills to generate prosperity.",
-   "My thoughts are aligned with the energy of abundance and wealth.",
-   "I deserve financial freedom, and I allow it to unfold in my life.",
-   "My wealth grows as I continue creating value for others.",
-   "I attract lucrative opportunities that contribute to my financial goals.",
-   "I am constantly learning and improving my financial intelligence.",
-   "My actions are aligned with my financial goals.",
-   "I release limiting beliefs about money and embrace my potential for wealth.",
-   "I surround myself with influences that support my growth and success.",
-   "I make wise financial decisions that strengthen my future.",
-   "I am open to creating multiple streams of income.",
-   "Each day, I become more skilled, confident, disciplined, and successful.",
-
-
-   // My Software Developer Journey
-   "I am a software developer.",
-   "I started with little knowledge, and I built my skills one project at a time.",
-   "I am proud of how far I have come.",
-   "Everything I know today was once something I did not know how to do.",
-   "I can learn difficult technical concepts.",
-   "I become a stronger developer every time I build something.",
-   "Every project I complete adds to my experience.",
-   "Every bug I solve makes me a better developer.",
-   "Errors are information, not evidence that I cannot code.",
-   "I do not need to know everything to be a successful software developer.",
-   "I know how to research what I do not know.",
-   "I know how to break complicated problems into manageable steps.",
-   "I trust myself to figure things out.",
-   "I am developing professional software engineering habits.",
-   "I understand that great software is built through planning, testing, iteration, and improvement.",
-   "I am becoming stronger in frontend development, backend development, databases, APIs, testing, deployment, and maintenance.",
-   "My portfolio is evidence of my growth.",
-   "I turn ideas into working software.",
-   "I am capable of building software people will pay to use.",
-   "I am building skills that can support me for the rest of my career.",
-   "I am a software developer, and I build things that matter.",
-   "I started from nothing, and I built everything I have with my own hands and mind.",
-   "I am a self-taught developer, and my journey proves that anything is possible.",
-   "I think like an engineer: I break down problems and solve them one step at a time.",
-   "I am capable of learning any technology, language, or framework I set my mind to.",
-   "Every line of code I write makes me a stronger developer.",
-   "I belong in the tech industry, and I bring unique value that no one else can.",
-   "I am proud of how far I've come, and excited for how far I'll go.",
-   "Challenges in code are opportunities for me to grow and level up.",
-   "I am disciplined, focused, and committed to mastering my craft.",
-   "I debug problems with patience and confidence, knowing every issue has a solution.",
-   "I build software that solves real problems for real people.",
-   "I am constantly improving my skills, one project at a time.",
-   "I turn ideas into working software — that is my superpower.",
-   "I am the developer I once dreamed of becoming.",
-
-
-
-
-   // AI Software Developer
-   "I am building my career at the intersection of software development and artificial intelligence.",
-   "I know how to turn AI technology into useful business solutions.",
-   "I create AI-powered software that solves real problems.",
-   "I understand how AI can automate repetitive business processes.",
-   "I build intelligent systems that help businesses operate more efficiently.",
-   "I continue learning new AI technologies and applying them to practical products.",
-   "I am not just consuming AI technology; I am building with it.",
-   "AI expands what I am capable of creating.",
-   "My technical skills and creativity give me an advantage.",
-   "I am becoming an expert in building practical AI-powered business software.",
-   "I am the founder and creator of custom AI receptionist software that transforms businesses.",
-   "I sell AI solutions that save people time, money, and stress — and I am paid well for it.",
-   "Business owners trust me with their technology, and I deliver excellence.",
-   "I create AI software that helps individuals and businesses thrive.",
-   "Every client I serve is a testament to my skill, vision, and hard work.",
-   "I am a builder of intelligent systems and a creator of real-world impact.",
-   "I attract ideal clients who value my AI receptionist software and pay me what I'm worth.",
-   "My AI software runs reliably, scales effortlessly, and serves clients around the clock.",
-   "I am a tech entrepreneur — I create value, solve problems, and generate income.",
-   "I confidently sell my software because I know it works and it helps people.",
-   "I am pioneering AI solutions that make businesses more efficient and profitable.",
-   "My customers win because I win — and we grow together.",
-   "I am building a legacy as a developer, founder, and creator of intelligent software.",
-   "I turn my technical skills into products that generate recurring revenue.",
-   "I am not just writing code — I am building a future of freedom and wealth.",
-
-
-   // AI Receptionist Business
-   "I build and sell custom AI receptionist software.",
-   "My AI receptionists help businesses answer customers, capture leads, schedule appointments, and automate communication.",
-   "My software solves real business problems.",
-   "Businesses are willing to pay for software that saves them time and helps them make money.",
-   "I confidently explain the value of my AI receptionist solutions.",
-   "I customize my software around the needs of each client.",
-   "Every client teaches me how to make my products better.",
-   "I am building repeatable systems for selling and deploying AI receptionist software.",
-   "My AI receptionist business creates recurring revenue opportunities.",
-   "I turn client problems into profitable software solutions.",
-   "I create software that works for businesses even when they are closed.",
-   "My products create value around the clock.",
-   "I am building technology that businesses can depend on.",
-
-
-   // Entrepreneur & Founder
-   "I am not only a developer; I am a technology entrepreneur.",
-   "I know how to transform an idea into a product.",
-   "I know how to transform a product into an offer.",
-   "I know how to transform an offer into a business.",
-   "I create solutions instead of waiting for opportunities.",
-   "I am building intellectual property that I own.",
-   "My code, systems, templates, components, and processes become reusable business assets.",
-   "Every project makes my business stronger.",
-   "I am creating systems that allow me to serve more clients without starting over each time.",
-   "I price my work according to the value I create.",
-   "I do not have to compete by being the cheapest developer.",
-   "The right customers value my expertise.",
-   "I confidently communicate what my services are worth.",
-   "I am learning how to sell technology as well as build it.",
-   "I attract clients who need the solutions I know how to create.",
-   "My business becomes more professional with every project.",
-   "I am building a real software company, one system at a time.",
-
-
-   // Customers & Sales
-   "There are businesses right now that need solutions I can build.",
-   "I confidently introduce my services to potential customers.",
-   "I am comfortable talking about my software and its value.",
-   "Selling is simply helping the right customer understand how my solution can help them.",
-   "Rejection does not determine my value or my ability.",
-   "Every conversation improves my sales skills.",
-   "I consistently create opportunities instead of waiting for customers to find me.",
-   "My work speaks for itself, and I learn to communicate its value clearly.",
-   "I build relationships with customers based on trust, professionalism, and results.",
-   "Satisfied clients create referrals, testimonials, and future opportunities.",
-   "I am building a reputation for solving problems with technology.",
-
-
-   // Professional Growth
-   "I approach my projects like a professional software engineer.",
-   "I plan before I build.",
-   "I document my requirements.",
-   "I use version control.",
-   "I test my software.",
-   "I fix defects instead of ignoring them.",
-   "I protect customer information and take security seriously.",
-   "I document my systems so they can be maintained and improved.",
-   "I continuously improve my development process.",
-   "I finish projects instead of endlessly chasing new ideas.",
-   "I deploy what I build.",
-   "I learn from real users.",
-   "I improve my software based on evidence and feedback.",
-   "My discipline is becoming as powerful as my creativity.",
-
-
-   // Resilience
-   "I started from nothing, but I did not stay there.",
-   "I built knowledge where there was once uncertainty.",
-   "I built skills where there was once inexperience.",
-   "I built projects where there were once only ideas.",
-   "I can look at my progress as proof that I am capable of changing my life.",
-   "I have already learned things that once seemed impossible.",
-   "When I do not know something, I learn it.",
-   "When something breaks, I investigate it.",
-   "When something fails, I improve it.",
-   "When I make a mistake, I use it as data.",
-   "I do not need perfect circumstances to continue progressing.",
-   "Consistency compounds.",
-   "Small improvements made every day create extraordinary results.",
-   "My past does not determine the limits of my future.",
-   "I am building the life I once imagined.",
-
-
-   // Future Identity
-   "I wake up knowing that I have valuable skills.",
-   "I earn money using my knowledge, creativity, and technology.",
-   "I build software from anywhere.",
-   "I have customers who trust me to solve their technology problems.",
-   "My software generates income.",
-   "My business generates recurring revenue.",
-   "My skills create opportunities wherever I go.",
-   "I have multiple ways to generate income with technology.",
-   "I own valuable software products and digital assets.",
-   "I am financially independent because I learned how to create value.",
-   "I am building something bigger than a job.",
-   "I am creating a career, a company, and a body of work that belongs to me.",
-
-
-   // The Transformation
-   "I remember when I was trying to figure out where to begin.",
-   "Now I know how to design, build, test, document, and improve software.",
-   "I remember when these technologies were unfamiliar to me.",
-   "Now I use them to turn ideas into real applications.",
-   "I started as a beginner.",
-   "I became a builder.",
-   "I became a software developer.",
-   "I became a business owner.",
-   "I became someone who creates solutions.",
-   "I started from nothing, and I built something real.",
-   "I started from nothing, and now I have skills nobody can take away from me.",
-   "I started from nothing, and now I have products I can sell.",
-   "I started from nothing, and now I have a business I can grow.",
-   "I started from nothing, and now I know how to create my own opportunities.",
-   "I am living proof that consistent learning can completely change a person's direction.",
-   "And I am still getting started."
-];
+           const publicGroups=window.MILLIONAIRE_LIBRARY || [];
+           const builtIn=publicGroups.flatMap(group=>group.affirmations);
+           let affirmations=[...builtIn];
+           const BASE_COUNT=builtIn.length;
 
 
            let total = affirmations.length;
            let currentIndex = 0;
            let favorites = new Set();
+           const NEW_FAVORITES_KEY='millionaireFavoritesV2';
            let isReadAloudEnabled = false;
            let cardUpdateId = 0;
            let touchStartX = 0;
@@ -225,13 +20,7 @@
 
            // Category boundaries correspond to the immutable built-in affirmation library.
            // Custom affirmations are appended after the 178 originals.
-           const baseCategories = [
-             ['Abundance & Wealth',20],['My Software Developer Journey',35],
-             ['AI Software Developer',25],['AI Receptionist Business',13],
-             ['Entrepreneur & Founder',17],['Customers & Sales',11],
-             ['Professional Growth',14],['Resilience',15],
-             ['Future Identity',12],['The Transformation',16]
-           ];
+           const baseCategories=publicGroups.map(group=>[group.name,group.affirmations.length]);
            const categorySelect = document.getElementById('affirmationCategory');
            const categorySummary = document.getElementById('categorySummary');
            baseCategories.forEach(([name]) => categorySelect.add(new Option(name,name)));
@@ -498,22 +287,15 @@
            // ---------- FAVORITES ----------
            function loadFavorites() {
                try {
-                   const stored = localStorage.getItem('millionaireAffirmationFavorites');
-                   if (stored) {
-                       const arr = JSON.parse(stored);
-                       if (Array.isArray(arr)) {
-                           favorites = new Set(arr.filter(n => Number.isInteger(n) && n >= 0 && n < total));
-                       }
-                   }
-               } catch (e) {
-                   favorites = new Set();
-               }
+                 const stored=JSON.parse(localStorage.getItem(NEW_FAVORITES_KEY)||'[]');
+                 if(Array.isArray(stored))favorites=new Set(stored.filter(n=>Number.isInteger(n)&&n>=0&&n<total));
+               }catch(e){favorites=new Set()}
+               // Legacy favorites are not mapped by index to a different library.
+               // The original legacy keys remain untouched for safe recovery.
            }
-
-
            function saveFavorites() {
                try {
-                   localStorage.setItem('millionaireAffirmationFavorites', JSON.stringify([...favorites]));
+                   localStorage.setItem(NEW_FAVORITES_KEY, JSON.stringify([...favorites]));
                } catch (e) {}
            }
 
@@ -738,30 +520,22 @@ function speakCurrentAffirmation() {
            // Persist custom affirmations in localStorage (optional but nice)
            function saveAffirmationsToLocal() {
                try {
-                   localStorage.setItem('millionaireAffirmationsCustom', JSON.stringify(affirmations));
+                   localStorage.setItem('millionaireCustomV2', JSON.stringify(affirmations.slice(BASE_COUNT)));
                } catch (e) {}
            }
 
 
            function loadAffirmationsFromLocal() {
+               // Existing localStorage contains the entire old 178-item built-in array.
+               // Retain only additions beyond that original list, without replacing new public content.
                try {
-                   const stored = localStorage.getItem('millionaireAffirmationsCustom');
-                   if (stored) {
-                       const arr = JSON.parse(stored);
-                       if (Array.isArray(arr)) {
-                           const validAffirmations = arr.filter(item =>
-                               typeof item === 'string' && item.trim().length > 0
-                           );
-                           if (validAffirmations.length > 0) {
-                               affirmations = validAffirmations;
-                               total = affirmations.length;
-                           }
-                       }
-                   }
-               } catch (e) {}
+                 const legacy=JSON.parse(localStorage.getItem('millionaireAffirmationsCustom')||'null');
+                 const saved=JSON.parse(localStorage.getItem('millionaireCustomV2')||'null');
+                 const extras=Array.isArray(saved)?saved:(Array.isArray(legacy)?legacy.slice(178):[]);
+                 const clean=extras.filter(x=>typeof x==='string'&&x.trim()&&x.length<=300);
+                 affirmations=[...builtIn,...new Set(clean)];total=affirmations.length;
+               }catch(e){affirmations=[...builtIn];total=affirmations.length}
            }
-
-
            // ---------- TOUCH / SWIPE ----------
            card.addEventListener('touchstart', (e) => {
                if (e.target.closest('button')) return;
