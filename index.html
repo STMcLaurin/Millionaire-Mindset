@@ -7,7 +7,9 @@
    <meta name="description" content="Millionaire Mindset: free daily affirmations for confidence, discipline and financial growth.">
    <title>Millionaire Mindset • Affirmations</title>
    <link rel="stylesheet" href="styles.css">
+   <script src="affirmations-public.js" defer></script>
    <script src="script.js" defer></script>
+   <script src="say-with-me.js" defer></script>
 </head>
 <body>
 
@@ -25,6 +27,7 @@
 
    <!-- ============== MAIN APP ============== -->
    <div class="app-container" id="appContainer">
+       <nav class="unified-nav" aria-label="Main navigation"><a href="dashboard.html">Dashboard</a><a aria-current="page" href="index.html">Affirmations</a><a href="dashboard.html#goals">Goals</a><a href="dashboard.html#settings">Settings</a><a href="account.html">Account</a></nav>
        <header class="app-header">
            <span class="app-icon" aria-hidden="true">💎</span>
            <h1 class="app-title">Millionaire Mindset</h1>
@@ -33,7 +36,8 @@
        </header>
 
 
-       <div class="card-wrapper" id="cardWrapper">
+       <div class="category-bar"><label for="affirmationCategory">Affirmation category</label><select id="affirmationCategory"><option value="all">All affirmations</option></select><span id="categorySummary" aria-live="polite"></span></div>
+       <div class="say-toolbar"><button id="startSayWithMe" class="btn btn-primary" type="button">🎙 Say With Me</button></div><section id="saySession" class="say-session" hidden aria-live="polite"><p class="say-step" id="sayStage">Listen</p><p class="say-quote" id="sayText"></p><p class="say-countdown" id="sayCountdown"></p><div class="say-actions"><button id="sayRepeat" class="btn" type="button">Repeat audio</button><button id="sayNext" class="btn btn-primary" type="button">Continue</button><button id="sayExit" class="btn" type="button">Close</button></div><p class="say-hint" id="sayHint"></p></section><div class="card-wrapper" id="cardWrapper">
            <div class="card" id="affirmationCard">
                <span class="card-quote-mark">"</span>
                <span class="card-number" id="cardNumber">AFFIRMATIONS</span>
