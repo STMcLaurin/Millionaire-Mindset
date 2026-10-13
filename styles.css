@@ -693,3 +693,5 @@ button:focus-visible,input:focus-visible,.favorite-item:focus-visible {outline:3
   .controls .btn-sm {padding:10px 12px}
   .add-affirmation-area {margin-top:0}
 }
+
+.dashboard-link{display:inline-block;color:#f0d68a;border:1px solid #73582c;border-radius:999px;padding:10px 16px;margin-top:8px;text-decoration:none;font-weight:700;font-size:.87rem}.dashboard-link:focus-visible{outline:3px solid #f0d68a;outline-offset:3px}
