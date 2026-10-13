@@ -25,6 +25,7 @@
 
    <!-- ============== MAIN APP ============== -->
    <div class="app-container" id="appContainer">
+       <nav class="unified-nav" aria-label="Main navigation"><a href="dashboard.html">Dashboard</a><a aria-current="page" href="index.html">Affirmations</a><a href="dashboard.html#goals">Goals</a><a href="dashboard.html#settings">Settings</a></nav>
        <header class="app-header">
            <span class="app-icon" aria-hidden="true">💎</span>
            <h1 class="app-title">Millionaire Mindset</h1>
@@ -33,6 +34,7 @@
        </header>
 
 
+       <div class="category-bar"><label for="affirmationCategory">Affirmation category</label><select id="affirmationCategory"><option value="all">All affirmations</option></select><span id="categorySummary" aria-live="polite"></span></div>
        <div class="card-wrapper" id="cardWrapper">
            <div class="card" id="affirmationCard">
                <span class="card-quote-mark">"</span>
